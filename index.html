@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>MQTT Dashboard ESP32</h1>
+
+    <div class="card">
+        <h2>Conexão</h2>
+
+        <input type="text" id="broker" value="broker.hivemq.com" placeholder="Broker">
+        <input type="number" id="port" value="8884" placeholder="Porta">
+        <input type="text" id="clientId" value="web_client" placeholder="Client ID">
+
+        <button onclick="connectMQTT()">Conectar</button>
+
+        <p id="status">Desconectado</p>
+    </div>
+
+    <div class="card">
+        <h2>Subscribe</h2>
+
+        <input type="text" id="subTopic" value="wesley/teste" placeholder="Tópico">
+
+        <button onclick="subscribeTopic()">Assinar</button>
+    </div>
+
+    <div class="card">
+        <h2>Publish</h2>
+
+        <input type="text" id="pubTopic" value="wesley/teste" placeholder="Tópico">
+        <input type="text" id="message" placeholder="Mensagem">
+
+        <button onclick="publishMessage()">Enviar</button>
+    </div>
+
+    <div class="card">
+        <h2>Mensagens</h2>
+
+        <div id="messages"></div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
